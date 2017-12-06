@@ -1,0 +1,21 @@
+<!-- <section>
+	<a *ngFor="let album of albums" (click)="clicked(album)">
+	    <div class="column senka">
+	    	<img class='listItemImg' src="assets/albums/{{album.file}}/{{album.image}}" alt={{album.title}} />
+	    	<h3>{{album.title}}</h3>
+	    	<i>by {{album.band_name}}</i><br/><br/>
+	    </div>
+	</a>
+</section> -->
+
+<!-- <h1>MUSIC FROM PARENT COMPONENT</h1> -->
+<section>
+	<a *ngFor="let album of albumList" (click)="clicked(album._source)">
+	    <div class="column senka">
+	    	<strong class="new-album" *ngIf="album._source.year === 1971">NEW</strong>
+	    	<img class='listItemImg' src="assets/albums/{{album._source.file}}/{{album._source.image}}" alt={{album._source.title}} />
+	    	<h3>{{album._source.title}}</h3>
+	    	<i>by {{album._source.band_name}}</i><br/><br/>
+	    </div>
+	</a>
+</section>

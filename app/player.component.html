@@ -1,0 +1,31 @@
+<!-- <h2>{{ currentAlbum }}</h2> -->
+<div *ngIf="currentAlbum !== undefined">
+<h3>{{ currentSong.name }}</h3>
+<h4>{{ currentAlbum.band_name }}</h4>
+<h5>{{ currentAlbum.year }}</h5>
+<img src="assets/albums/{{currentAlbum.file}}/{{currentAlbum.image}}" /><br/>
+<!-- <h3>{{ currentSong.name }}</h3>
+<h4>{{ currentAlbum.band_name }}</h4>
+<h5>{{ currentAlbum.year }}</h5>
+<img src="assets/albums/{{currentAlbum.file}}/{{currentAlbum.image}}" /><br/> -->
+<audio bind-src="songPath" controls id="audioPlayer" autoplay>
+    <!-- <source src="assets/albums/{{album.file}}/{{currentSong.file}}" type="audio/mpeg"> -->
+    <!-- <source id="currentSong" bind-src="songPath" type="audio/mpeg"> -->
+    Your browser does not support the audio element.
+</audio>
+<ul id="playlist">
+    <li *ngFor="let song of currentAlbum.songs; let broj=index">
+        <a (click)="clicked(song)"><b>{{broj+1}}. {{song.name}}</b></a>
+    </li>
+    <!-- <li *ngFor="let song of currentAlbum.songs; let broj=index">
+        <a (click)="clicked(song)"><b>{{broj+1}}. {{song.name}}</b></a>
+    </li> -->
+</ul>
+</div>
+
+
+<div *ngIf="currentAlbum === undefined">
+	<h1>Select Album from the List</h1>
+
+
+</div>
